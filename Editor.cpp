@@ -18,8 +18,8 @@ Editor::Editor(int choice)
         folder_path += epic_path;
     else if (choice == 1)
         folder_path += steam_path;
-    engine_path = folderpath + "Engine.ini";
-    game_user_path = folderpath + "GameUserSettings.ini";
+    engine_path = folder_path + "Engine.ini";
+    game_user_path = folder_path + "GameUserSettings.ini";
 }
 Editor::~Editor() {}
 
@@ -47,8 +47,8 @@ void Editor::EditEngineIniFile()
 
 void Editor::EditGameUserSettingsIniFile()
 {
-    std::ifstream userFile(game_user_path);
-    if (!userFile.is_open())
+    std::ifstream iFile(game_user_path);
+    if (!iFile.is_open())
     {
         std::cerr << "Failed to open file for reading: " << game_user_path << std::endl;
         return;
@@ -57,7 +57,7 @@ void Editor::EditGameUserSettingsIniFile()
     // Read the file
     std::string line;
     std::string modifiedContent;
-    while (std::getline(userFile, line))
+    while (std::getline(iFile, line))
     {
         if (line.find("FPSLimit = 30") != std::string::npos)
         {
@@ -65,18 +65,18 @@ void Editor::EditGameUserSettingsIniFile()
         }
         modifiedContent += line + "\n";
     }
-    userFile.close();
+    iFile.close();
 
     // Save to the file
-    std::ofstream userFile(game_user_path);
-    if (!userFile.is_open())
+    std::ofstream oFile(game_user_path);
+    if (!oFile.is_open())
     {
         std::cerr << "Failed to open file for writing: " << game_user_path << std::endl;
         return;
     }
 
-    userFile << modifiedContent;
-    userFile.close();
+    oFile << modifiedContent;
+    oFile.close();
 
     // Make the file read only
     makeFileReadOnly(game_user_path);

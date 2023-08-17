@@ -1,5 +1,5 @@
-#ifndef EDITOR_H
-#define EDITOR_H
+#ifndef _EDITOR_H
+#define _EDITOR_H
 #include <iostream>
 
 class Editor
