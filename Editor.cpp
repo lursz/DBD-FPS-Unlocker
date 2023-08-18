@@ -5,13 +5,9 @@
 
 Editor::Editor(int choice)
 {
-    /* -------------------------------------------------------------------------- */
-    /*                                DATA TO EDIT                                */
-    /* -------------------------------------------------------------------------- */
     std::string steam_path = "\\Local\\DeadByDaylight\\Saved\\Config\\WindowsNoEditor\\";
     std::string epic_path = "\\Local\\DeadByDaylight\\Saved\\Config\\EGS\\";
     engine_ini_command = "[/script/engine.engine]\nbSmoothFrameRate=false\nMinSmoothedFrameRate=5\nMaxSmoothedFrameRate=240\nbUseVSync=false\n";
-    /* -------------------------------------------------------------------------- */
     // get %appdata% path
     folder_path = getenv("APPDATA");
     folder_path.erase(folder_path.length() - 8, 8);
