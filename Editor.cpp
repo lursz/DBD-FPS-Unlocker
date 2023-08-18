@@ -10,10 +10,12 @@ Editor::Editor(int choice)
     /* -------------------------------------------------------------------------- */
     std::string steam_path = "\\Local\\DeadByDaylight\\Saved\\Config\\WindowsNoEditor\\";
     std::string epic_path = "\\Local\\DeadByDaylight\\Saved\\Config\\EGS\\";
-    std::string engine_ini_command = "[/script/engine.engine]\nbSmoothFrameRate=false\nMinSmoothedFrameRate=5\nMaxSmoothedFrameRate=240\nbUseVSync=false\n";
+    engine_ini_command = "[/script/engine.engine]\nbSmoothFrameRate=false\nMinSmoothedFrameRate=5\nMaxSmoothedFrameRate=240\nbUseVSync=false\n";
     /* -------------------------------------------------------------------------- */
-
+    // get %appdata% path
     folder_path = getenv("APPDATA");
+    folder_path.erase(folder_path.length() - 8, 8);
+    // append the rest of the path
     if (choice == 2)
         folder_path += epic_path;
     else if (choice == 1)
@@ -22,8 +24,6 @@ Editor::Editor(int choice)
     game_user_path = folder_path + "GameUserSettings.ini";
 }
 Editor::~Editor() {}
-
-
 
 void Editor::makeFileReadOnly(const std::string &filePath)
 {
@@ -34,10 +34,10 @@ void Editor::makeFileReadOnly(const std::string &filePath)
 void Editor::EditEngineIniFile()
 {
     std::ofstream engineFile(engine_path, std::ios_base::app);
-
-    // Place the command
     if (!engineFile.is_open())
         std::cerr << "Failed to open file for writing: " << engine_path << std::endl;
+    
+    // Place the command
     engineFile << engine_ini_command;
     engineFile.close();
 
@@ -59,10 +59,8 @@ void Editor::EditGameUserSettingsIniFile()
     std::string modifiedContent;
     while (std::getline(iFile, line))
     {
-        if (line.find("FPSLimit = 30") != std::string::npos)
-        {
-            line = "FPSLimit = 500";
-        }
+        if ((line.find("FPSLimit=30") || line.find("FPSLimit=60")) != std::string::npos)
+            line = "FPSLimit=500";
         modifiedContent += line + "\n";
     }
     iFile.close();

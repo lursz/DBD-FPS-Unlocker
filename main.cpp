@@ -3,7 +3,7 @@
 
 int main() {
 
-    std::cout << "Are you using steam or epic games?" << std::endl << "1. Steam" << std::endl << "2. Epic Games" << std::endl;
+    std::cout << "Select your platform of choice:" << std::endl << "1. Steam" << std::endl << "2. Epic Games Store" << std::endl;
     int choice = 0;
     switch (std::cin.get()) {
     case '1':
@@ -23,5 +23,6 @@ int main() {
     editor.EditEngineIniFile();
     editor.EditGameUserSettingsIniFile();
 
+    std::cout << "Success!" << std::endl;
     return 0;
 }
