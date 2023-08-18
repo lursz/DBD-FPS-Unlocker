@@ -59,7 +59,7 @@ void Editor::EditGameUserSettingsIniFile()
     std::string modifiedContent;
     while (std::getline(iFile, line))
     {
-        if ((line.find("FPSLimit=30") || line.find("FPSLimit=60")) != std::string::npos)
+        if ((line.find("FPSLimit=30") != std::string::npos) || (line.find("FPSLimit=60") !=std::string::npos))
             line = "FPSLimit=500";
         modifiedContent += line + "\n";
     }
