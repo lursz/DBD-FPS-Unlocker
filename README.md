@@ -1,13 +1,13 @@
 # Dead by Daylight FPS Unlocker
 
 ## The issue
-It's common knowledge that DayByDaylight despite its popularity doesn't offer any advanced graphical settings. Amongst these, undeniably the most missed  is option to unlock your FPS above 60. There is no simple way to do this in-game. 
+It's common knowledge that Dead By Daylight (despite its popularity) doesn't offer any advanced graphical settings. Amongst these, undeniably the most missed  is option to unlock your FPS above 60. There is no simple way to do this in-game. 
 ## The solution
 It can be done, however, by changing a few values in the game's files. This program is the simplest way to do so. Just fire it up, select your platform of choice, and enjoy your smooth experience.
 ## Safety
 What we're doing here is neither a hack nor an exploit. You will not get banned for this.
 ## How to run
-Simply download the .exe file from `Releases` tab and open it.
+Simply download the .exe file from [`Releases`](https://github.com/lursz/DBD-FPS-Unlocker/releases) tab and open it.
 ______________________________
 ## How to build
 You can modify this program to your liking. This might come in handy in the future, as the game is constantly evolving. This being said, I'm not a DBD player, so I won't notice those changes.  
